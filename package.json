@@ -1,6 +1,6 @@
 {
   "name": "bg-vue-components",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "components for banggood",
   "main": "src/index.js",
   "scripts": {
