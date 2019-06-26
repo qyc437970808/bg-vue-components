@@ -1,0 +1,23 @@
+{
+  "name": "bg-components",
+  "version": "1.0.0",
+  "description": "components for banggood",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/qyc437970808/bg-components.git"
+  },
+  "keywords": [
+    "components",
+    "banggood"
+  ],
+  "author": "qyc",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/qyc437970808/bg-components/issues"
+  },
+  "homepage": "https://github.com/qyc437970808/bg-components#readme"
+}
