@@ -1,6 +1,7 @@
 {
-  "name": "fe-crmui",
-  "version": "0.1.1",
+  "name": "bg-vue-components",
+  "version": "1.0.4",
+  "description": "components for banggood",
   "private": false,
   "scripts": {
     "serve": "vue-cli-service serve",
@@ -55,11 +56,17 @@
   ],
   "keywords": [
     "vue",
-    "crm"
+    "components",
+    "banggood"
   ],
   "license": "MIT",
+  "author": "jmx164491960",
   "repository": {
     "type": "git",
-    "url": "git@github.com:jmx164491960/crm-ui.git"
-  }
+    "url": "git+https://github.com/qyc437970808/bg-components.git"
+  },
+  "bugs": {
+    "url": "https://github.com/qyc437970808/bg-components/issues"
+  },
+  "homepage": "https://github.com/qyc437970808/bg-components#readme"
 }
