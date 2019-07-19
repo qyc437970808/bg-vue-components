@@ -11,7 +11,7 @@
   },
   "main": "lib/crm-ui.common.js",
   "files": [
-    "lib",
+    "lib"
   ],
   "dependencies": {
     "core-js": "^2.6.5",
