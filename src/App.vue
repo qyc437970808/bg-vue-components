@@ -1,22 +1,13 @@
 <template>
   <div id="app">
     <img src="./assets/logo.png">
-    <div>
-      <label>bg-loadMore</label>
-      <div>
-        <demo1></demo1>
-      </div>
-    </div>
+    <router-view/>
   </div>
 </template>
 
 <script>
-import demo1 from '../example/demo1';
 export default {
-  name: 'app',
-  components: {
-    demo1
-  }
+  name: 'App'
 }
 </script>
 
