@@ -6,7 +6,7 @@
 
 <script>
     export default {
-        name: "BgLoadMore"
+        name: "ElLoadMore"
     }
 </script>
 
