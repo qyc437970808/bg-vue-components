@@ -7,9 +7,9 @@ import router from './router'
 import store from './store/index'
 import bgComponents from 'bg-vue-components/packages';
 import VueI18n from 'vue-i18n';
-import * as Locale from 'bg-vue-components/src/locale';
-import enLocale from 'bg-vue-components/src/locale/lang/en';
-import zhLocale from 'bg-vue-components/src/locale/lang/zh';
+import * as Locale from 'bg-vue-components/lib/locale';
+import enLocale from 'bg-vue-components/lib/en';
+import zhLocale from 'bg-vue-components/lib/zh';
 
 Vue.use(VueI18n)
 const messages = {

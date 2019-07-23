@@ -13,7 +13,8 @@
     "unit": "cross-env BABEL_ENV=test karma start test/unit/karma.conf.js --single-run",
     "test": "npm run unit",
     "lint": "eslint --ext .js,.vue src test/unit",
-    "build": "node build/build.js"
+    "build": "node build/build.js",
+    "build--utils": "cross-env NODE_ENV=production env_config=prod node build/build-utils.js"
   },
   "dependencies": {
     "axios": "^0.17.1",
@@ -131,5 +132,6 @@
     "parserOptions": {
       "parser": "babel-eslint"
     }
-  }
+  },
+  "main": "lib/index.js"
 }

@@ -14,13 +14,7 @@ const getComponentPath = require('./getComponentPath');
 // const env = require('../config/prod.env')
 const env = config.build[process.env.env_config+'Env']
 
-// 整理入口
-let entrys = getComponentPath(path.resolve(__dirname, '../packages'));
-const utilsPath = require('./utilsPath');
-entrys = {
-  ...entrys,
-  ...utilsPath
-}
+let entrys = require('./utilsPath');
 
 const webpackConfig = merge(baseWebpackConfig, {
   entry: entrys,
