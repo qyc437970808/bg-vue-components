@@ -1,6 +1,6 @@
 <template>
   <section>
-    <bg-load-more></bg-load-more>
+    <bg-loading></bg-loading>
   </section>
 </template>
 

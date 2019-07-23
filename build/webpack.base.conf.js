@@ -21,6 +21,9 @@ module.exports = {
     // publicPath: process.env.NODE_ENV === 'production'
     //   ? config.build.assetsPublicPath
     //   : config.dev.assetsPublicPath
+    // libraryExport: 'default',
+    // library: 'BgVueComponents',
+    // libraryTarget: 'commonjs2',
     publicPath: process.env.NODE_ENV === 'production'
       ? config.build.assetsPublicPath
       : (process.env.NODE_ENV === 'testing' ? config.build.assetsPublicPath : config.dev.assetsPublicPath) //增加判断
@@ -30,6 +33,7 @@ module.exports = {
     alias: {
       'vue$': 'vue/dist/vue.esm.js',
       '@': resolve('src'),
+      'bg-vue-components': resolve('/'),
       'assets': path.resolve(__dirname, '../src/assets'),
       '@assets': path.resolve(__dirname, '../src/assets'),
     }

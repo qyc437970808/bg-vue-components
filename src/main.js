@@ -5,15 +5,38 @@ import App from './App'
 import router from './router'
 
 import store from './store/index'
-import ElementUI from 'element-ui'
-import 'element-ui/lib/theme-chalk/index.css'
-Vue.use(ElementUI)
+import bgComponents from 'bg-vue-components/packages';
+import VueI18n from 'vue-i18n';
+import * as Locale from 'bg-vue-components/src/locale';
+import enLocale from 'bg-vue-components/src/locale/lang/en';
+import zhLocale from 'bg-vue-components/src/locale/lang/zh';
+
+Vue.use(VueI18n)
+const messages = {
+  en: {
+    ...enLocale
+  },
+  zh: {
+    ...zhLocale
+  }
+}
+console.log('VueI18n:', VueI18n);
+const i18n = new VueI18n({
+  locale: 'zh',
+  messages
+})
+
+
+Locale.i18n((key, value) => i18n.t(key, value))
+console.log('bgComponents:', bgComponents);
+Vue.use(bgComponents)
+
 // 看看配置会不会生效
 Vue.config.productionTip = false
-
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
+  i18n,
   router,
   store,
   components: { App },

@@ -1,14 +1,20 @@
 <template>
   <div>
-    <button>这是一个loading组件</button>
+    <button>{{loadingText}}</button>
 
   </div>
 </template>
 
 <script>
-    export default {
-        name: "ElLoading"
-    }
+  import {t} from 'bg-vue-components/src/locale';
+  export default {
+      name: "BgLoading",
+      computed: {
+        loadingText() {
+          return t('bg.loading')
+        }
+      }
+  }
 </script>
 
 <style>
