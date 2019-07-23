@@ -14,7 +14,7 @@
     "test": "npm run unit",
     "lint": "eslint --ext .js,.vue src test/unit",
     "build": "node build/build.js",
-    "build--utils": "cross-env NODE_ENV=production env_config=prod node build/build-utils.js"
+    "build--utils": "cross-env NODE_ENV=production env_config=prod --watch node build/build-utils.js"
   },
   "dependencies": {
     "axios": "^0.17.1",

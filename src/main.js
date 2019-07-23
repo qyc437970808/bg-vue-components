@@ -11,6 +11,8 @@ import * as Locale from 'bg-vue-components/lib/locale';
 import enLocale from 'bg-vue-components/lib/en';
 import zhLocale from 'bg-vue-components/lib/zh';
 
+console.log('Locale:', Locale)
+
 Vue.use(VueI18n)
 const messages = {
   en: {
