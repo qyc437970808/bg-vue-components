@@ -677,3 +677,8 @@
     }
   };
 </script>
+
+<style>
+@import url('./style.css');
+</style>
+

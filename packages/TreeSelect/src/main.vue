@@ -286,7 +286,7 @@ export default {
 };
 </script>
 
-<style t="scss">
+<style lang="scss">
 .vue-tree-repeatable {
   .keword-mark {
     background-color: yellow;
@@ -294,7 +294,7 @@ export default {
 }
 </style>
 
-<style t="scss" scoped>
+<style lang="scss" scoped>
 .c-tree-select-2 {
   padding-right: 20px;
   .top-slot {

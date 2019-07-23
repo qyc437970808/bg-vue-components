@@ -10,9 +10,17 @@ import VueI18n from 'vue-i18n';
 import * as Locale from 'bg-vue-components/lib/locale';
 import enLocale from 'bg-vue-components/lib/en';
 import zhLocale from 'bg-vue-components/lib/zh';
+import {
+  Select,
+  Input,
+  Button
+} from 'element-ui';
 console.log('bgComponents');
 
 Vue.use(VueI18n)
+Vue.use(Select);
+Vue.use(Input);
+Vue.use(Button);
 const messages = {
   en: {
     ...enLocale
@@ -21,15 +29,13 @@ const messages = {
     ...zhLocale
   }
 }
-console.log('VueI18n:', VueI18n);
 const i18n = new VueI18n({
   locale: 'zh',
   messages
-})
+});
 
 
 Locale.i18n((key, value) => i18n.t(key, value))
-console.log('bgComponents:', bgComponents);
 Vue.use(bgComponents)
 
 // 看看配置会不会生效

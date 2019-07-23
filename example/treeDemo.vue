@@ -17,7 +17,7 @@ export default {
         {
           id: 'p1',
           label: 'p1',
-          chidlren: [
+          children: [
             {
               id: 'c1',
               label: 'c1'
@@ -27,7 +27,7 @@ export default {
         {
           id: 'p2',
           label: 'p2',
-          chidlren: [
+          children: [
             {
               id: 'c2',
               label: 'c2'
