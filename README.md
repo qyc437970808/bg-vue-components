@@ -28,6 +28,9 @@ npm install babel-plugin-component -D
 然后，将.babelrc里的plugins数组增加:
 ```
 {
+  "preset": [
+    ["es2015", { "modules": false }]
+  ],
   "plugins": [
     [
       "component",
