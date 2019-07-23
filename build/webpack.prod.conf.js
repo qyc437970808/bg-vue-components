@@ -41,7 +41,8 @@ const webpackConfig = merge(baseWebpackConfig, {
     // chunkFilename: utils.assetsPath('[id].js')
   },
   externals: [
-    /^bg-vue-components/
+    /^bg-vue-components/,
+    'vue'
   ],
   plugins: [
     // http://vuejs.github.io/vue-loader/en/workflow/production.html

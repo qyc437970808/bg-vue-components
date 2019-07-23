@@ -1,11 +1,13 @@
 import Button from './Button';
 import Loading from './Loading';
 import LoadMore from './LoadMore';
+import TreeSelect from './TreeSelect';
 
 const components = [
   Button,
   LoadMore,
-  Loading
+  Loading,
+  TreeSelect
 ];
 
 const install = function(Vue) {
@@ -22,5 +24,6 @@ export default {
   install, // 全量引入
   Button,
   LoadMore,
-  Loading
+  Loading,
+  TreeSelect
 };
