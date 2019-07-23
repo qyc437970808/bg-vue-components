@@ -9,10 +9,10 @@
       <el-button class="btn btn-selectAll"
         :disabled="inputValue !== ''"
         @click="selectAllHandler"
-        size="mini">{{t('selectAll')}}</el-button>
+        size="mini">{{t('bg.selectAll')}}</el-button>
       <el-button class="btn btn-clear"
         @click="clearHandler"
-        size="mini">{{t('clear')}}</el-button>
+        size="mini">{{t('bg.clear')}}</el-button>
     </div>
     <tag-group
       class="tag-group"
@@ -28,7 +28,7 @@
         filter
         highlight-current
         :filter-node-method="filterNode"
-        :usual-label="t('usualSelectLabel')"
+        :usual-label="t('bg.treesSelect.usualSelectLabel')"
         :empty-text="emptyText"
         show-checkbox
         @check-change="checkChangeHandler"
@@ -81,9 +81,9 @@ export default {
      */
     emptyText() {
       if (this.options.length > 0) {
-        return this.t('searchNoData');
+        return this.t('bg.searchNoData');
       } else {
-        return this.t('loading')
+        return this.t('bg.loading')
       }
     }
   },
