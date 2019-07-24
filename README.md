@@ -6,6 +6,10 @@
 
 npm run build--prod
 
+## 本地开发，调试
+
+npm run dev
+
 ## 引入bg-vue-components
 
 #### 完整引入
@@ -52,6 +56,11 @@ packages文件夹下index.js用于做**全量引入**的入口。每个子文件
 
 - 组件文件夹命名：**首字母大写加驼峰**，例如：Button
 - 组件.vue文件内的name命名：前缀“**Bg**” + 「**组件名**」，例如： BgButton，使用的时候则是bg-button
+- 引用公共资源时，为避免重复打包，请都是用import '**bg-vue-components**/xx/xx',例如：
+
+  正确的用法： import {t} from 'bg-vue-components/src/locale'.
+  错误的用法： import {t} from '@/locale';
+- 当增加新的公共资源**文件夹**时，需要在build/build-config里增加文件名，否则打包出来后按需引入会有问题
 
 ## 国际化
 
@@ -95,12 +104,3 @@ new Vue({
   // ...
 })
 ```
-
-
-## 开发，调试步骤
-
-由于代码里面引用了一些lib路径的资源，开发前先生成一下lib下的工具：
-
-npm run build--utils先生成国际化等工具的静态资源
-
-npm run dev
