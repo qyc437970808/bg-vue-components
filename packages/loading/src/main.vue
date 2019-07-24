@@ -5,7 +5,7 @@
 </template>
 
 <script>
-  import {t} from 'bg-vue-components/lib/locale';
+  import {t} from 'bg-vue-components/src/locale';
   console.log('t:', t, t('bg.loading'));
   export default {
       name: "BgLoading",

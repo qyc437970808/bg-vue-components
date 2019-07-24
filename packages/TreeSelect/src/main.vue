@@ -44,12 +44,12 @@
 </template>
 
 <script>
-import { debounce, cecursion } from 'bg-vue-components/lib/util';
+import { debounce, cecursion } from 'bg-vue-components/src/utils/util';
 import TagGroup from './components/tagGroup';
-import FormMixins from 'bg-vue-components/lib/form';
+import FormMixins from 'bg-vue-components/src/mixins/form';
 import usually from './mixins/usually';
 import CrmTree from '../../Tree/src/main';
-import {t} from 'bg-vue-components/lib/locale';
+import {t} from 'bg-vue-components/src/locale';
 
 const DELAYTIME = 300;
 const LARGET_LEGTH = 300; // 300是数量多与少的分界线

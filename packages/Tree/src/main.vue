@@ -101,7 +101,7 @@
 
     props: {
       usualLabel: {
-        default: 'Usual choices'
+        default: '常用选择'
       },
       usualKeys: {
         type: Array,

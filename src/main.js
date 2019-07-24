@@ -7,9 +7,9 @@ import router from './router'
 import store from './store/index'
 import bgComponents from 'bg-vue-components/packages';
 import VueI18n from 'vue-i18n';
-import * as Locale from 'bg-vue-components/lib/locale';
-import enLocale from 'bg-vue-components/lib/en';
-import zhLocale from 'bg-vue-components/lib/zh';
+import * as Locale from 'bg-vue-components/src/locale';
+import enLocale from 'bg-vue-components/src/locale/en';
+import zhLocale from 'bg-vue-components/src/locale/zh';
 import {
   Select,
   Input,

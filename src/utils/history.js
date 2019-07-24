@@ -1,5 +1,5 @@
 import Storage from './localStorage'
-import eventBus from 'bg-vue-components/lib/eventBus';
+import eventBus from 'bg-vue-components/src/utils/eventBus';
 const STORAGE_NAME = 'historyStorage';
 
 const HISTORY_COLLECT_KEY = 'history-collect';

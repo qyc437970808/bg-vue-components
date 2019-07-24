@@ -1,7 +1,7 @@
 import {
   historyStorageOn,
   HistoryStorage
-} from 'bg-vue-components/lib/history';
+} from 'bg-vue-components/src/utils/history';
 export default {
   data() {
     return {

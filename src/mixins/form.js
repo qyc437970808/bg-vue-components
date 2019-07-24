@@ -1,7 +1,7 @@
 /**
  *Created by 夜雪暮歌 on 2018/7/6
  **/
-import { isEmptyResult } from "bg-vue-components/lib/util";
+import { isEmptyResult } from "bg-vue-components/src/utils/util";
 
 export default {
   props: [

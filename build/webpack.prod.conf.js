@@ -12,15 +12,15 @@ const OptimizeCSSPlugin = require('optimize-css-assets-webpack-plugin')
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin')
 const getComponentPath = require('./getComponentPath');
 // const env = require('../config/prod.env')
-const env = config.build[process.env.env_config+'Env']
+const env = config.build[process.env.env_config+'Env'];
+const buildConfig = require('./build-config');
 
 // 整理入口
 let entrys = getComponentPath(path.resolve(__dirname, '../packages'));
-const utilsPath = require('./utilsPath');
-entrys = {
-  ...entrys,
-  ...utilsPath
-}
+// const utilsPath = require('./utilsPath');
+entrys = buildConfig.entrys;
+
+console.log('buildConfig.externals:', buildConfig.externals)
 
 const webpackConfig = merge(baseWebpackConfig, {
   entry: entrys,
@@ -37,13 +37,15 @@ const webpackConfig = merge(baseWebpackConfig, {
     path: config.build.assetsRoot,
     filename: utils.assetsPath('[name].js'),
     library: 'BgVueComponents',
-    libraryTarget: 'umd'
+    libraryTarget: 'commonjs2'
     // chunkFilename: utils.assetsPath('[id].js')
   },
   externals: [
-    /^bg-vue-components/,
-    'vue'
+    buildConfig.externals
   ],
+  // {
+  //   // /^bg-vue-components/,
+  // },
   plugins: [
     // http://vuejs.github.io/vue-loader/en/workflow/production.html
     new webpack.DefinePlugin({
