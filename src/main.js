@@ -15,9 +15,8 @@ import {
   Input,
   Button
 } from 'element-ui';
-console.log('bgComponents');
 
-Vue.use(VueI18n)
+// Vue.use(VueI18n)
 Vue.use(Select);
 Vue.use(Input);
 Vue.use(Button);
@@ -29,13 +28,13 @@ const messages = {
     ...zhLocale
   }
 }
-const i18n = new VueI18n({
-  locale: 'zh',
-  messages
-});
+// const i18n = new VueI18n({
+//   locale: 'zh',
+//   messages
+// });
 
 
-Locale.i18n((key, value) => i18n.t(key, value))
+// Locale.i18n((key, value) => i18n.t(key, value))
 Vue.use(bgComponents)
 
 // 看看配置会不会生效
@@ -43,7 +42,7 @@ Vue.config.productionTip = false
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
-  i18n,
+  // i18n,
   router,
   store,
   components: { App },

@@ -348,15 +348,6 @@
           defaultExpandAll: this.defaultExpandAll,
           filterNodeMethod: this.filterNodeMethod
         });
-
-        console.log('usualTreeStore:', this.usualTreeStore);
-
-        // this.$nextTick(() => {
-        //   const ref = this.$refs['usual'][0];
-        //   ref.childNodeRendered = true;
-        //   ref.expanded = true;
-        //   ref.node.isLeaf = false;
-        // })
       },
 
       getNodeKey(node) {
@@ -403,7 +394,6 @@
 
       setCheckedKeys(keys, leafOnly) {
         if (!this.nodeKey) throw new Error('[Tree] nodeKey is required in setCheckedKeys');
-        console.log('keys:', keys)
         this.store.setCheckedKeys(keys, leafOnly);
         this.updateUsualTreeParent();
       },

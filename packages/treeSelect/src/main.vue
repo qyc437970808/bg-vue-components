@@ -169,11 +169,9 @@ export default {
      */
     treeFilterHandler() {},
     checkChangeHandler(node, checked, params3) {
-      // console.log('checkChangeHandler:', node, checked, params3);
       return;
     },
     checkHandler(node, obj) {
-      // console.log('checkHandler', node, obj);
       this.treeSelectedItem = obj.checkedNodes;
     },
     /**
@@ -218,7 +216,6 @@ export default {
         ...childrenIdArr,
         ...arr.filter(item => item.useChildrenId).map(item => item.id)
       ];
-      console.log('idToFilter:', idToFilter.includes('countries'));
       const result = arr.filter(item => !idToFilter.includes(item.id));
       return result;
     },
@@ -232,10 +229,8 @@ export default {
       this.tagData = this.getTagData(this.treeSelectedItem);
     },
     nodeClickHandler(params1, params2, params3) {
-      // console.log('nodeClickHandler:', params1, params2, params3);
     },
     currentChangeHandler(data, node) {
-      // console.log('currentChangeHandler:', data, node);
     },
     /**
      * @description: 懒加载，展开收起有卡顿，当前不太适合
