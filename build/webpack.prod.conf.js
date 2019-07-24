@@ -20,8 +20,6 @@ let entrys = getComponentPath(path.resolve(__dirname, '../packages'));
 // const utilsPath = require('./utilsPath');
 entrys = buildConfig.entrys;
 
-console.log('buildConfig.externals:', buildConfig.externals)
-
 const webpackConfig = merge(baseWebpackConfig, {
   entry: entrys,
   module: {
