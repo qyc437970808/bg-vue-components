@@ -43,9 +43,6 @@ const webpackConfig = merge(baseWebpackConfig, {
   externals: [
     buildConfig.externals
   ],
-  // {
-  //   // /^bg-vue-components/,
-  // },
   plugins: [
     // http://vuejs.github.io/vue-loader/en/workflow/production.html
     new webpack.DefinePlugin({

@@ -24,6 +24,10 @@ function getEntrysAndExternals(dirPath) {
   const fileList = fs.readdirSync(path.join(__dirname, SRC_PATH, dirPath));
   fileList.forEach(file => {
     file = path.basename(file, '.js');
+    // 如果是文件名index，还有两种写法： bg-vue-components/xxx/index 和 bg-vue-components/xxx
+    if (file === 'index') {
+      externals[`${NAME}/src/${dirPath}`] = `${NAME}/lib/${dirPath}/${file}`;
+    }
     entrys[`${dirPath}/${file}`] = `${path.join(__dirname, SRC_PATH, dirPath)}/${file}`;
     externals[`${NAME}/src/${dirPath}/${file}`] = `${NAME}/lib/${dirPath}/${file}`;
   })
@@ -72,5 +76,6 @@ externals = Object.assign({
 }, externals)
 // }, externals), nodeExternals];
 
+console.log('externals:', externals);
 module.exports.externals = externals;
 module.exports.entrys = entrys;
