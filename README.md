@@ -54,8 +54,8 @@ npm install babel-plugin-component -D
 #### 代码规范
 packages文件夹下index.js用于做**全量引入**的入口。每个子文件夹内的index.js作为**按需引入**的入口。
 
-- 组件文件夹命名：**首字母大写加驼峰**，例如：Button
-- 组件.vue文件内的name命名：前缀“**Bg**” + 「**组件名**」，例如： BgButton，使用的时候则是bg-button
+- 组件文件夹命名：**驼峰**，例如：package/button
+- 组件.vue文件内的name命名：前缀“**Bg**” + 「**首字母大写驼峰的组件名**」，例如： BgButton，使用的时候则是bg-button
 - 引用公共资源时，为避免重复打包，请都是用import '**bg-vue-components**/xx/xx',例如：
 
   正确的用法： import {t} from 'bg-vue-components/src/locale'.
