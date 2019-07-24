@@ -75,7 +75,5 @@ externals = Object.assign({
   vue: 'vue'
 }, externals)
 // }, externals), nodeExternals];
-
-console.log('externals:', externals);
 module.exports.externals = externals;
 module.exports.entrys = entrys;

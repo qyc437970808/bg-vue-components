@@ -1,7 +1,7 @@
-import Button from './Button';
-import Loading from './Loading';
-import LoadMore from './LoadMore';
-import TreeSelect from './TreeSelect';
+import Button from './button';
+import Loading from './loading';
+import LoadMore from './loadMore';
+import TreeSelect from './treeSelect';
 
 const components = [
   Button,
