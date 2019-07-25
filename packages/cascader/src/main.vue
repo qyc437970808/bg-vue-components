@@ -12,9 +12,10 @@
 
 <script>
 import {
-  HistoryStorage
+  HistoryStorage,
+  USUAL_KEY
 } from 'bg-vue-components/src/utils/history';
-import { deepClone } from "bg-vue-components/src/utils/util";
+import { deepClone, cecursion } from "bg-vue-components/src/utils/util";
 import {t} from 'bg-vue-components/src/locale';
 
 const usualOptionsNum = 15; // 常用选项的个数
@@ -40,7 +41,6 @@ export default {
     },
     updateHistoryStorage() {
       const key = this.selectedValue[this.selectedValue.length - 1].value;
-      console.log('updateHistoryStorage-key', key)
       // 过滤掉有children的
       this.historyStorage.update([key]);
     },
@@ -87,7 +87,7 @@ export default {
           label: this.t('bg.usualSelectLabel'),
           value: {
             label: this.t('bg.usualSelectLabel'),
-            value: 'usually'
+            value: USUAL_KEY
           },
           children: usuallyOptions
         },
@@ -103,7 +103,6 @@ export default {
       if (!usualKeys || usualKeys.length === 0) {
         return;
       }
-      console.log('history:', this.historyStorage.get(usualOptionsNum))
       // 加上常用选择
       this.optionsWithUsually = this.getOptionsWidthUsually(usualKeys);
     }
@@ -130,6 +129,19 @@ export default {
 
       this.updateHistoryStorage();
       this.setOptionsWithUsually();
+
+      if (this.selectedValue.findIndex(item => item.value === USUAL_KEY) > -1) {
+        let res = [];
+        this.selectedValue.forEach(item => {
+          cecursion(this.actualOptions, (option) => {
+            if (option.value.value === item.value) {
+              res.push(option.value);
+            }
+          })
+        });
+        // 修复选择了常用选项，然后触发historyStorage.set()时的清空问题
+        this.selectedValue = res;
+      }
     },
     formatOptions(val) {
       this.setOptionsWithUsually();
