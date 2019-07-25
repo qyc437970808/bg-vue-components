@@ -1,6 +1,6 @@
 <template>
   <el-cascader
-    :popper-class="browser ? 'c-crm-cascader fireFox-hack' : 'c-crm-cascader'"
+    :popper-class="isFirefox ? 'c-crm-cascader fireFox-hack' : 'c-crm-cascader'"
     :value="selectedValue"
     :placeholder="t('bg.search')"
     size="mini"
@@ -31,7 +31,9 @@ export default {
       this.$emit('change', val);
     },
     /**
-     * 得到带有常用选项的options
+     * @description: 得到带有常用选项的options
+     * @param {Object} crmCascaderHistory localStorage里存放的对象
+     * @return: 
      */
     getOptionsWidthUsually(crmCascaderHistory) {
       // 排序 把使用频率高的放在前面
@@ -85,7 +87,7 @@ export default {
       return res;
     },
     /**
-     * 设置当前optionsWithUsually的值
+     * @description: 设置当前optionsWithUsually的值
      */
     setOptionsWithUsually() {
       let storage = Storage.getInfo('crmComponentsHistory');
@@ -110,7 +112,7 @@ export default {
       this.selectedValue = val;
     },
     /**
-     * 该数据变化会触发常用数据的收集
+     * @description: 该数据变化会触发常用数据的收集
      */
     requestTime(val) {
       if (!this.selectedValue || this.selectedValue.length === 0) {
@@ -136,7 +138,7 @@ export default {
   },
   computed: {
     /**
-     * 实际用的otions
+     * @description: 实际用的otions
      */
     actualOptions() {
       if (this.optionsWithUsually && this.optionsWithUsually.length !== 0) {
@@ -146,7 +148,7 @@ export default {
       }
     },
     /**
-     * 把传入的options进行处理，让组件可用
+     * @description: 把传入的options进行处理，让组件可用
      */
     formatOptions() {
       const result = deepClone(this.options);
@@ -176,8 +178,12 @@ export default {
       return result;
     },
 
-    browser() {
-      console.log('browser', navigator.userAgent);
+    /**
+     * @description: 是否火狐
+     * @param {type} 
+     * @return: 
+     */
+    isFirefox() {
       return navigator.userAgent.includes('Firefox')
     }
   },
