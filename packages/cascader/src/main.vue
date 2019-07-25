@@ -11,7 +11,9 @@
 </template>
 
 <script>
-import Storage from 'bg-vue-components/src/utils/localStorage'
+import {
+  HistoryStorage
+} from 'bg-vue-components/src/utils/history';
 import { deepClone } from "bg-vue-components/src/utils/util";
 import {t} from 'bg-vue-components/src/locale';
 
@@ -21,7 +23,8 @@ export default {
   props: [
     'options',
     'value', // value是一个对象 {label: '', value: ''}
-    'requestTime'
+    'requestTime',
+    'memoryName'
   ],
   methods: {
     t,
@@ -30,16 +33,23 @@ export default {
       this.$emit('input', val);
       this.$emit('change', val);
     },
+    initUsual() {
+      this.historyStorage = new HistoryStorage({
+        name: this.memoryName
+      });
+    },
+    updateHistoryStorage() {
+      const key = this.selectedValue[this.selectedValue.length - 1].value;
+      console.log('updateHistoryStorage-key', key)
+      // 过滤掉有children的
+      this.historyStorage.update([key]);
+    },
     /**
      * @description: 得到带有常用选项的options
      * @param {Object} crmCascaderHistory localStorage里存放的对象
      * @return: 
      */
-    getOptionsWidthUsually(crmCascaderHistory) {
-      // 排序 把使用频率高的放在前面
-      const historyArr= Object.keys(crmCascaderHistory).sort((a, b) => {
-        return crmCascaderHistory[b] - crmCascaderHistory[a];
-      });
+    getOptionsWidthUsually(historyArr) {
       const result = {};
       /**
        * historyArr存下的数据并不全部有效，有些数据不在当前options里。
@@ -70,7 +80,6 @@ export default {
         return null;
       }) // 数组转化为对象数组
       .filter(item => item !== null) // 过滤掉不在当前options的
-      .slice(0, usualOptionsNum); // 只取前15个
 
       // 组装数据结构
       const res = [
@@ -90,21 +99,21 @@ export default {
      * @description: 设置当前optionsWithUsually的值
      */
     setOptionsWithUsually() {
-      let storage = Storage.getInfo('crmComponentsHistory');
-      if (Object.prototype.toString.call(storage) !== '[object Object]') {
-        storage = {};
-      }
-      if (!storage.crmCascader || Object.keys(storage.crmCascader).length === 0) {
+      const usualKeys = this.historyStorage.get(usualOptionsNum);
+      if (!usualKeys || usualKeys.length === 0) {
         return;
       }
+      console.log('history:', this.historyStorage.get(usualOptionsNum))
       // 加上常用选择
-      this.optionsWithUsually = this.getOptionsWidthUsually(storage.crmCascader);
+      this.optionsWithUsually = this.getOptionsWidthUsually(usualKeys);
     }
   },
   data() {
     return {
       selectedValue: [],
-      optionsWithUsually: []
+      optionsWithUsually: [],
+      historyStorage: null,
+      usualKeys: []
     }
   },
   watch: {
@@ -119,18 +128,8 @@ export default {
         return;
       }
 
-      let storage = Storage.getInfo('crmComponentsHistory');
-      if (Object.prototype.toString.call(storage) !== '[object Object]') {
-        storage = {};
-      }
-      if (!storage.crmCascader) {
-        storage.crmCascader = {}
-      }
-      const key = this.selectedValue[this.selectedValue.length - 1].value;
-      storage.crmCascader[key] = storage.crmCascader[key] || 0;
-      storage.crmCascader[key] ++;
-      Storage.set('crmComponentsHistory', storage);
-      this.optionsWithUsually = this.getOptionsWidthUsually(storage.crmCascader);
+      this.updateHistoryStorage();
+      this.setOptionsWithUsually();
     },
     formatOptions(val) {
       this.setOptionsWithUsually();
@@ -189,6 +188,7 @@ export default {
   },
   created() {
     this.selectedValue = this.value;
+    this.initUsual();
 
     if (this.formatOptions && this.formatOptions.length > 0) {
       this.setOptionsWithUsually();

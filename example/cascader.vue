@@ -4,6 +4,7 @@
       在element的cascader基础上增加了常用选择的功能。 依赖element的cascader
     </div>
     <bg-cascader
+      ref="cascader"
       :options="options"
       v-model="value"
       :memoryName="'bg-cascader'"
@@ -11,6 +12,8 @@
     ></bg-cascader>
 
     <button @click="requestTime ++">触发保存常用</button>
+    <button @click="consoleValue">打印value</button>
+    <button @click="consoleOptions">打印options</button>
   </section>
 </template>
 
@@ -1108,6 +1111,15 @@ export default {
       value: [],
       options,
       requestTime: 0
+    }
+  },
+  methods: {
+    consoleValue() {
+      console.log(this.value)
+    },
+    consoleOptions() {
+      const value = this.$refs['cascader'].optionsWithUsually;
+      console.log(value);
     }
   }
 }

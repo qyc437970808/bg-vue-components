@@ -21,23 +21,6 @@ export function historyStorageOn(fn) {
   eventBus.$on(HISTORY_COLLECT_KEY , fn);
 }
 
-export function getItemByKey(selectedArr, data, key = 'id') {
-  let res = [];
-  const handler = (arr, listData) => {
-    listData.forEach((item) => {
-      const value = item[key] || item.value;
-      if (arr.includes(String(value))) {
-        res.push(Object.assign({}, item));
-      }
-      if (item.children && item.children.length > 0) {
-        handler(arr, item.children)
-      }
-    });
-  }
-  handler(selectedArr, data);
-  return res;
-}
-
 export class HistoryStorage {
   constructor({
     nameSpace = STORAGE_NAME,
