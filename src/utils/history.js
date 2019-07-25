@@ -2,6 +2,7 @@ import Storage from './localStorage'
 import eventBus from 'bg-vue-components/src/utils/eventBus';
 const STORAGE_NAME = 'historyStorage';
 
+export const USUAL_KEY = 'USUAL';
 const HISTORY_COLLECT_KEY = 'history-collect';
 /**
  * @description: 触发绑定事件
@@ -44,10 +45,11 @@ export class HistoryStorage {
       return [];
     }
     let keys = Object.keys(storageData);
+    keys = keys.sort((a, b) => {
+      return storageData[b].times - storageData[a].times
+    });
     if (keys.length > amount) {
-      keys = keys.sort((a, b) => {
-        return storageData[b].times - storageData[a].times
-      }).slice(0, amount);
+      keys = keys.slice(0, amount);
     }
     const res = keys.map(key => {
       return storageData[key].value;
