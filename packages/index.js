@@ -2,12 +2,14 @@ import Button from './button';
 import Loading from './loading';
 import LoadMore from './loadMore';
 import TreeSelect from './treeSelect';
+import Cascader from './cascader';
 
 const components = [
   Button,
   LoadMore,
   Loading,
-  TreeSelect
+  TreeSelect,
+  Cascader
 ];
 
 const install = function(Vue) {
@@ -25,5 +27,6 @@ export default {
   Button,
   LoadMore,
   Loading,
-  TreeSelect
+  TreeSelect,
+  Cascader
 };

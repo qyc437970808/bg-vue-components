@@ -13,13 +13,15 @@ import zhLocale from 'bg-vue-components/src/locale/zh';
 import {
   Select,
   Input,
-  Button
+  Button,
+  Cascader
 } from 'element-ui';
 
 // Vue.use(VueI18n)
 Vue.use(Select);
 Vue.use(Input);
 Vue.use(Button);
+Vue.use(Cascader);
 const messages = {
   en: {
     ...enLocale

@@ -3,6 +3,7 @@ import Router from 'vue-router'
 import HelloWorld from '@/components/HelloWorld'
 import demo1 from '../../example/demo1';
 import treeDemo from '../../example/treeDemo';
+import cascader from '../../example/cascader';
 Vue.use(Router)
 
 export default new Router({
@@ -21,6 +22,11 @@ export default new Router({
       path: '/tree',
       name: 'tree',
       component: treeDemo
+    },
+    {
+      path: '/cascader',
+      name: 'cascader',
+      component: cascader
     }
   ]
 })
