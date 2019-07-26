@@ -16,9 +16,7 @@ const env = config.build[process.env.env_config+'Env'];
 const buildConfig = require('./build-config');
 
 // 整理入口
-let entrys = getComponentPath(path.resolve(__dirname, '../packages'));
-// const utilsPath = require('./utilsPath');
-entrys = buildConfig.entrys;
+const entrys = buildConfig.entrys;
 
 const webpackConfig = merge(baseWebpackConfig, {
   entry: entrys,
@@ -57,7 +55,14 @@ const webpackConfig = merge(baseWebpackConfig, {
     }),
     // extract css into its own file
     new ExtractTextPlugin({
-      filename: utils.assetsPath('theme/[name].css')
+      // 由于element的babel-plugin-component插件css文件引入默认'-'连接的命名
+      // 为了把驼峰命名的转换成'-'连接的命名，例如：treeSelect => tree-select
+      filename: (getPath) => {
+        let name = getPath('[name]');
+        name = name.replace(/[A-Z]/, word => '-' + word.toLowerCase());
+
+        return utils.assetsPath(`theme/${name}.css`);
+      }
       // Setting the following option to `false` will not extract CSS from codesplit chunks.
       // Their CSS will instead be inserted dynamically with style-loader when the codesplit chunk has been loaded by webpack.
       // It's currently set to `true` because we are seeing that sourcemaps are included in the codesplit bundle as well when it's `false`,

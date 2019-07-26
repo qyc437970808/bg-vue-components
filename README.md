@@ -40,7 +40,6 @@ npm install babel-plugin-component -D
       "component",
       {
         "libraryName": "bg-vue-components",
-        "camel2Dash": false,
         "styleLibrary": {
           "base": false,
           "name": "theme"

@@ -49,28 +49,19 @@ function getEntrysAndExternals(dirPath) {
   }
 });
 
+let entryComponentPath = {};
+
+Object.keys(componentPath).forEach(file => {
+  // 驼峰转Dash命名
+  dashFileName = file.replace(/[A-Z]/, word => '-' + word.toLowerCase());
+  externals[`${NAME}/packages/${file}`] = `${NAME}/lib/${dashFileName}`;
+  entryComponentPath[dashFileName] = componentPath[file];
+});
+
 entrys = {
   ...entrys,
-  ...componentPath
+  ...entryComponentPath
 };
-Object.keys(componentPath).forEach(file => {
-  externals[`${NAME}/packages/${file}`] = `${NAME}/lib/${file}`;
-});
-// utilsList.forEach(file => {
-//   entrys[`utils/${file}`] = `${path.resolve(__dirname, '../src/utils')}/file`;
-//   file = path.basename(file, '.js');
-//   externals[`${NAME}/src/utils/${file}`] = `${NAME}/lib/utils/${file}`;
-// })
-// mixinsList.forEach(file => {
-//   file = path.basename(file, '.js');
-//   externals[`${NAME}/src/mixins/${file}`] = `${NAME}/lib/mixins/${file}`;
-// })
-// localeList.forEach(file => {
-//   file = path.basename(file, '.js');
-//   console.log('file:', file);
-//   externals[`${NAME}/src/locale/${file}`] = `${NAME}/lib/locale/${file}`;
-// })
-
 externals = Object.assign({
   vue: 'vue'
 }, externals)
