@@ -14,13 +14,15 @@ import {
   Select,
   Input,
   Button,
-  Cascader
+  Cascader,
+  Tag
 } from 'element-ui';
 
 // Vue.use(VueI18n)
 Vue.use(Select);
 Vue.use(Input);
 Vue.use(Button);
+Vue.use(Tag);
 Vue.use(Cascader);
 const messages = {
   en: {

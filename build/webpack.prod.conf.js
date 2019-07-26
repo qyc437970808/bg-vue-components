@@ -33,8 +33,7 @@ const webpackConfig = merge(baseWebpackConfig, {
     path: config.build.assetsRoot,
     filename: utils.assetsPath('[name].js'),
     library: 'BgVueComponents',
-    libraryTarget: 'commonjs2'
-    // chunkFilename: utils.assetsPath('[id].js')
+    libraryTarget: 'umd'
   },
   externals: [
     buildConfig.externals

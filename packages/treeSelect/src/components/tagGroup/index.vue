@@ -13,18 +13,12 @@
 </template>
 
 <script>
-import {
-  Tag
-} from 'element-ui';
 export default {
   props: ['data'],
   methods: {
     closeHandler(item) {
       this.$emit('close', item);
     }
-  },
-  components: {
-    'el-tag': Tag
   }
 }
 </script>
