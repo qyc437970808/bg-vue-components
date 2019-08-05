@@ -15,10 +15,20 @@ import {
   Input,
   Button,
   Cascader,
-  Tag
+  Tag,
+  Dialog,
+  Form,
+  FormItem,
+  Option,
+  Loading
 } from 'element-ui';
 
 // Vue.use(VueI18n)
+Vue.use(Loading.directive);
+Vue.use(Option);
+Vue.use(Form);
+Vue.use(FormItem);
+Vue.use(Dialog);
 Vue.use(Select);
 Vue.use(Input);
 Vue.use(Button);

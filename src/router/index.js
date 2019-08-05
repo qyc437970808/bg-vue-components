@@ -4,6 +4,7 @@ import HelloWorld from '@/components/HelloWorld'
 import demo1 from '../../example/demo1';
 import treeDemo from '../../example/treeDemo';
 import cascader from '../../example/cascader';
+import dialog from '../../example/dialog';
 Vue.use(Router)
 
 export default new Router({
@@ -27,6 +28,11 @@ export default new Router({
       path: '/cascader',
       name: 'cascader',
       component: cascader
+    },
+    {
+      path: '/dialog',
+      name: 'dialog',
+      component: dialog
     }
   ]
 })

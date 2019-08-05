@@ -3,18 +3,21 @@ import Loading from './loading';
 import LoadMore from './loadMore';
 import TreeSelect from './treeSelect';
 import Cascader from './cascader';
+import Dialog from './dialog';
 
 const components = [
   Button,
   LoadMore,
   Loading,
   TreeSelect,
-  Cascader
+  Cascader,
+  Dialog
 ];
 
 const install = function(Vue) {
   components.forEach(component => {
-    Vue.component(component.name, component);
+    Vue.use(component)
+    // Vue.component(component.name, component);
   });
 }
 
@@ -28,5 +31,6 @@ export default {
   LoadMore,
   Loading,
   TreeSelect,
-  Cascader
+  Cascader,
+  Dialog
 };
