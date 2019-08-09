@@ -17,9 +17,9 @@ npm run dev
 
 ```
 import bgVueComponents from 'bg-vue-components'
-import 'bg-vue-components/thmeme/index.css';
+import 'bg-vue-components/lib/theme/index.css'
 
-Vue.use(bgVueComponents);
+Vue.use(bgVueComponents)
 ```
 
 #### 按需引入
