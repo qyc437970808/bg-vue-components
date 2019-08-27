@@ -20,8 +20,8 @@ export default new Router({
       component: demo1
     },
     {
-      path: '/tree',
-      name: 'tree',
+      path: '/treeDemo',
+      name: 'treeDemo',
       component: treeDemo
     },
     {

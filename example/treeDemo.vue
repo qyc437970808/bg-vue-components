@@ -30,6 +30,7 @@ export default {
         {
           id: 'p1',
           label: 'p1',
+          showCheckbox: false,
           children: [
             {
               id: 'c1',
