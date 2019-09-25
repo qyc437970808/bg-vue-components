@@ -28,7 +28,7 @@
         filter
         highlight-current
         :filter-node-method="filterNode"
-        :usual-label="t('bg.treesSelect.usualSelectLabel')"
+        :usual-label="this.t('bg.treesSelect.usualSelectLabel')"
         :empty-text="emptyText"
         show-checkbox
         @check-change="checkChangeHandler"
@@ -102,6 +102,13 @@ export default {
         return;
       }
       this.updateTreeStatus(this.value);
+    },
+    options() {
+      this.$nextTick(() => {
+        const treeEl = this.$refs['tree'];
+        treeEl.setCheckedKeys(this.value);
+        this.tagData = this.getTagData(treeEl.getCheckedNodes());
+      })
     }
   },
 

@@ -216,6 +216,16 @@
     },
 
     watch: {
+      /**
+       * 当发生改变时，修改dom上的文字
+       */
+      usualLabel(val) {
+        const item = this.usualTreeStore.root.data[0];
+        if (item.id === USUAL_KEY) {
+          item.label = val;
+        }
+      },
+
       usualOptions(val) {
         if (this.root) {
           this.usualTreeStore.root.childNodes[0].childNodes = this.usualOptions;
