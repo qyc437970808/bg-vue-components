@@ -4,6 +4,8 @@ import state from './state'
 import getters from './getters'
 import mutations from './mutations'
 import actions from './actions'
+import app from './modules/app';
+
 Vue.use(Vuex)
 // modules
 const store = new Vuex.Store({
@@ -11,6 +13,8 @@ const store = new Vuex.Store({
   getters,
   mutations,
   actions,
-  modules: {}
+  modules: {
+    app
+  }
 })
 export default store

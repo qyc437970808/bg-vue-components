@@ -19,7 +19,6 @@ export default async (url = '', data = {}, type = 'GET', options = {}) => {
   for (let i in options) {
     config[i] = options[i]
   }
-  console.log(config)
   const response = await axios(config).then(res => {
     return {
       success: true,

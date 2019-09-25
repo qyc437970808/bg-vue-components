@@ -15,7 +15,6 @@ async function getData () {
     // 这里写授权或者追加请求头的逻辑
     options = {...options, ...otherConfig}
   }
-  console.log(options)
 
   let response = await fetch(arguments[0], arguments[1], arguments[2], options)
 

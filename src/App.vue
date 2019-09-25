@@ -25,6 +25,7 @@ export default {
         this.$i18n.locale = 'zh';
         this.language = 'zh'
       }
+      this.$store.commit('TOGGLE_LANG', this.language);
     }
   }
 }
