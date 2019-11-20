@@ -195,11 +195,17 @@ export default {
      * @return: 
      */
     isFirefox() {
-      return navigator.userAgent.includes('Firefox')
+      try {
+        return navigator.userAgent.includes('Firefox')
+      } catch(e) {
+        return false
+      }
     }
   },
   created() {
     this.selectedValue = this.value;
+  },
+  mounted() {
     this.initUsual();
 
     if (this.formatOptions && this.formatOptions.length > 0) {

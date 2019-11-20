@@ -113,6 +113,9 @@ export default {
   },
 
   created() {
+    
+  },
+  mounted() {
     this.initUsual();
     if (this.value && this.value.length > 0) {
       this.$nextTick(() => {
