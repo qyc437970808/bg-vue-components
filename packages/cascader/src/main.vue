@@ -44,7 +44,7 @@ export default {
       });
     },
     updateHistoryStorage() {
-      const key = this.selectedValue[this.selectedValue.length - 1].value;
+      const key = this.selectedValue[this.selectedValue.length - 1];
       // 过滤掉有children的
       this.historyStorage.update([key]);
     },
@@ -66,10 +66,10 @@ export default {
             handler(item.children);
           } else {
             // value值
-            const value = item.value.value;
+            const value = item.value;
             if (historyArr.includes(value)) {
               result[value] = {
-                label: item.value.label,
+                label: item.label,
                 value: item.value
               }
             }
@@ -134,11 +134,11 @@ export default {
       this.updateHistoryStorage();
       this.setOptionsWithUsually();
 
-      if (this.selectedValue.findIndex(item => item.value === USUAL_KEY) > -1) {
+      if (this.selectedValue.includes(USUAL_KEY)) {
         let res = [];
         this.selectedValue.forEach(item => {
           cecursion(this.actualOptions, (option) => {
-            if (option.value.value === item.value) {
+            if (option.value === item) {
               res.push(option.value);
             }
           })
