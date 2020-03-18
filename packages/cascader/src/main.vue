@@ -89,10 +89,7 @@ export default {
       const res = [
         {
           label: this.t('bg.usualSelectLabel'),
-          value: {
-            label: this.t('bg.usualSelectLabel'),
-            value: USUAL_KEY
-          },
+          value: USUAL_KEY,
           children: usuallyOptions
         },
         ...this.formatOptions

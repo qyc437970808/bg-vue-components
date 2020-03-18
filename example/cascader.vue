@@ -11,6 +11,7 @@
       :filter-method="filterCustom"
       :attr="attr"
       :request-time="requestTime"
+      @change="problemLabelChange"
     ></bg-cascader>
 
     <button @click="requestTime ++">触发保存常用</button>
@@ -1135,6 +1136,9 @@ export default {
   },
 
   methods: {
+    problemLabelChange(arr) {
+      console.log('arr: ', arr);
+    },
     test() {
       this.value = ["e346191d-15c5-11ea-9c3b-782bcb725713", "e6710693-15c5-11ea-9c3b-782bcb725713"];
       // this.value = [
