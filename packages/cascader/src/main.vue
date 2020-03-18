@@ -2,6 +2,8 @@
   <el-cascader
     :popper-class="isFirefox ? 'c-crm-cascader fireFox-hack' : 'c-crm-cascader'"
     :value="selectedValue"
+    :filter-method="filterCustom"
+    :props="newAttr"
     :placeholder="t('bg.search')"
     size="mini"
     clearable
@@ -25,7 +27,9 @@ export default {
     'options',
     'value', // value是一个对象 {label: '', value: ''}
     'requestTime',
-    'memoryName'
+    'memoryName',
+    'filterMethod',
+    'attr'
   ],
   methods: {
     t,
@@ -148,6 +152,14 @@ export default {
     }
   },
   computed: {
+    filterCustom() {
+      return this.filterMethod;
+    },
+
+    newAttr() {
+      return this.attr;
+    },
+
     /**
      * @description: 实际用的otions
      */
@@ -166,23 +178,16 @@ export default {
       /**
        * 递归处理数据 1.去掉为空数组的属性children 2.叶子节点加上displayLabel 3.每个节点value转化为一个对象
        */
-      const handler = (data, extendLabelArr = []) => {
+      const handler = (data) => {
         data.forEach((item) => {
-          let labelArr = [];
           item.label = item.problemName;
-          item.value = {
-            value: item.mailProblemLabelId,
-            label: item.problemName
-          };
-          labelArr = [...extendLabelArr, item.problemName]
+          item.value = item.mailProblemLabelId
           if (item.children && item.children.length === 0) {
             delete item.children
           }
           if (item.children) {
-            handler(item.children, labelArr);
-          } else {
-            item.value.displayLabel = labelArr.join('/');
-          }
+            handler(item.children);
+          } 
         });
       }
       handler(result);
