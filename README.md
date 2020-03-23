@@ -59,7 +59,7 @@ packages文件夹下index.js用于做**全量引入**的入口。每个子文件
 
   正确的用法： import {t} from 'bg-vue-components/src/locale'.
   错误的用法： import {t} from '@/locale';
-- 当增加新的公共资源**文件夹**时，需要在build/build-config里增加文件名，否则打包出来后按需引入会有问题
+- 当前公共函数请放在在src下的**utils,mixins,locale**里添加，如需要增加新的公共资源**文件夹**时，需要在build/build-config里增加文件名，否则打包出来后按需引入会有问题
 
 ## 国际化
 
