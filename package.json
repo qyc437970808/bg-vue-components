@@ -1,6 +1,6 @@
 {
   "name": "bg-vue-components",
-  "version": "1.1.5",
+  "version": "1.2.1",
   "description": "components for banggood",
   "author": "jiangminxi <jiangminxi@banggood.com>",
   "private": false,
@@ -12,14 +12,14 @@
     "build--beta": "cross-env NODE_ENV=production env_config=prod node build/build.js",
     "unit": "cross-env BABEL_ENV=test karma start test/unit/karma.conf.js --single-run",
     "test": "npm run unit",
-    "lint": "eslint --ext .js,.vue src test/unit",
-    "build": "node build/build.js"
+    "lint": "eslint --ext .js,.vue src test/unit"
   },
   "dependencies": {
     "axios": "^0.17.1",
     "babel-polyfill": "^6.26.0",
     "cross-env": "^5.2.0",
-    "element-ui": "^2.4.6",
+    "element-ui": "^2.9.2",
+    "pyfl": "^1.1.4",
     "qs": "^6.5.1",
     "vue": "^2.5.2",
     "vue-i18n": "^8.12.0",
