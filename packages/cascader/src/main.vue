@@ -177,8 +177,9 @@ export default {
        */
       const handler = (data) => {
         data.forEach((item) => {
-          item.label = item.problemName;
-          item.value = item.mailProblemLabelId
+          item.label = item[this.newAttr['name']];
+          item.value = item[this.newAttr['id']];
+          item.children = item[this.newAttr['options']]
           if (item.children && item.children.length === 0) {
             delete item.children
           }
