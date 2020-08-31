@@ -10,6 +10,16 @@ npm run build--prod
 
 npm run dev
 
+## 重点目录概览
+
+    |-example demo页
+    |-lib 打包输出目录
+    |-packages 组件源代码
+    |-src demo页源代码
+    |-build 构建程序代码
+      |-build-config 实现按需加载
+      |-getComponentPath 通过packages目录下的index.js，得出组件列表
+
 ## 引入bg-vue-components
 
 #### 完整引入
